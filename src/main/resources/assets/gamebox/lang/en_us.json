@@ -1,0 +1,9 @@
+{
+  "text.gamebox.minigame.fragile": "Fragile World",
+  "neoforge.configgui.fragile.enabled": "Enabled",
+  "neoforge.configgui.fragile.enabled.comment": "Enable this minigame.",
+  "neoforge.configgui.fragile.break_speed_multiplier": "Break Speed Multiplier",
+  "neoforge.configgui.fragile.break_speed_multiplier.comment": "Break speed multiplier applied to all blocks.",
+  "neoforge.configgui.fragile.tools_break_instantly": "Tools Break Instantly",
+  "neoforge.configgui.fragile.tools_break_instantly.comment": "The tool used to break a block loses all remaining durability instantly."
+}

@@ -1,0 +1,10 @@
+plugins {
+    id 'java-library'
+}
+
+// Core 必须保持与 MC 版本无关：低版本字节码，未来其他 MC 版本线可直接复用
+java.toolchain.languageVersion = JavaLanguageVersion.of(21)
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+}

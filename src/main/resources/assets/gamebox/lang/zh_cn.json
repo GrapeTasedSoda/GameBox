@@ -1,0 +1,9 @@
+{
+  "text.gamebox.minigame.fragile": "一碰就碎",
+  "neoforge.configgui.fragile.enabled": "启用",
+  "neoforge.configgui.fragile.enabled.comment": "开启后所有方块一碰就碎。",
+  "neoforge.configgui.fragile.break_speed_multiplier": "挖掘速度倍率",
+  "neoforge.configgui.fragile.break_speed_multiplier.comment": "应用于所有方块的挖掘速度倍率。",
+  "neoforge.configgui.fragile.tools_break_instantly": "工具一碰就碎",
+  "neoforge.configgui.fragile.tools_break_instantly.comment": "破坏方块时使用的工具立即损失全部剩余耐久。"
+}
