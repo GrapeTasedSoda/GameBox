@@ -5,5 +5,15 @@
   "neoforge.configgui.fragile.break_speed_multiplier": "Break Speed Multiplier",
   "neoforge.configgui.fragile.break_speed_multiplier.comment": "Break speed multiplier applied to all blocks.",
   "neoforge.configgui.fragile.tools_break_instantly": "Tools Break Instantly",
-  "neoforge.configgui.fragile.tools_break_instantly.comment": "The tool used to break a block loses all remaining durability instantly."
+  "neoforge.configgui.fragile.tools_break_instantly.comment": "Tools and weapons lose all durability after one use.",
+  "neoforge.configgui.fragile.entities_one_health": "Entities Have 1 Health",
+  "neoforge.configgui.fragile.entities_one_health.comment": "All living entities are limited to 1 health and die from any damage.",
+  "neoforge.configgui.fragile.buckets_exempt": "Buckets Exempt",
+  "neoforge.configgui.fragile.buckets_exempt.comment": "When true, buckets are exempt from the fragile rules. Default: true.",
+  "neoforge.configgui.fragile.block_whitelist": "Block Whitelist",
+  "neoforge.configgui.fragile.block_whitelist.comment": "Blocks exempt from instant breaking.",
+  "neoforge.configgui.fragile.item_whitelist": "Item Whitelist",
+  "neoforge.configgui.fragile.item_whitelist.comment": "Items exempt from instant shattering.",
+  "neoforge.configgui.fragile.entity_whitelist": "Entity Whitelist",
+  "neoforge.configgui.fragile.entity_whitelist.comment": "Entities exempt from the 1-health rule."
 }

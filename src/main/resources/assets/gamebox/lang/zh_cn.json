@@ -5,5 +5,15 @@
   "neoforge.configgui.fragile.break_speed_multiplier": "挖掘速度倍率",
   "neoforge.configgui.fragile.break_speed_multiplier.comment": "应用于所有方块的挖掘速度倍率。",
   "neoforge.configgui.fragile.tools_break_instantly": "工具一碰就碎",
-  "neoforge.configgui.fragile.tools_break_instantly.comment": "破坏方块时使用的工具立即损失全部剩余耐久。"
+  "neoforge.configgui.fragile.tools_break_instantly.comment": "工具和武器使用一次后立即损毁。",
+  "neoforge.configgui.fragile.entities_one_health": "生物一滴血",
+  "neoforge.configgui.fragile.entities_one_health.comment": "所有生物只有 1 点生命值，受到任何伤害都会死亡。",
+  "neoforge.configgui.fragile.buckets_exempt": "桶豁免",
+  "neoforge.configgui.fragile.buckets_exempt.comment": "为 true 时桶不受一碰就碎规则影响。默认：true。",
+  "neoforge.configgui.fragile.block_whitelist": "方块白名单",
+  "neoforge.configgui.fragile.block_whitelist.comment": "不受瞬间破坏规则影响的方块。",
+  "neoforge.configgui.fragile.item_whitelist": "物品白名单",
+  "neoforge.configgui.fragile.item_whitelist.comment": "不受一碰就碎规则影响的物品。",
+  "neoforge.configgui.fragile.entity_whitelist": "生物白名单",
+  "neoforge.configgui.fragile.entity_whitelist.comment": "不受一滴血规则影响的生物。"
 }

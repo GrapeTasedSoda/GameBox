@@ -26,6 +26,7 @@ public final class GameBoxMod {
 
     private final GameBoxConfig config;
     private final MinigameManager manager;
+    private final GameBoxEvents events;
 
     public GameBoxMod(IEventBus modEventBus, ModContainer modContainer) {
         MinigameRegistry registry = new MinigameRegistry();
@@ -36,7 +37,8 @@ public final class GameBoxMod {
         modContainer.registerConfig(ModConfig.Type.LOCAL, config.spec());
 
         modEventBus.addListener(this::onConfigEvent);
-        NeoForge.EVENT_BUS.register(new GameBoxEvents(manager));
+        this.events = new GameBoxEvents(manager);
+        NeoForge.EVENT_BUS.register(events);
         NeoForge.EVENT_BUS.addListener(this::onServerStarting);
 
         LOGGER.info("Game Box loaded with {} minigame(s) registered", registry.registered().size());
@@ -45,6 +47,7 @@ public final class GameBoxMod {
     private void onConfigEvent(ModConfigEvent event) {
         if (event.getConfig().getSpec() == config.spec()) {
             config.applyStates(manager);
+            events.refreshLoadedEntities();
             LOGGER.info("Game Box config (re)loaded, active minigames: {}", manager.activeIds());
         }
     }

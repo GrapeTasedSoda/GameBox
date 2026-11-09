@@ -5,6 +5,9 @@ package com.gamebox.core.hook;
  */
 public interface BlockBrokenHook {
 
-    /** @return true 表示本次破坏所使用的工具应立即损失全部剩余耐久。 */
-    boolean shatterToolOnBlockBreak();
+    /**
+     * @param toolId 本次破坏使用的工具 ID（如 "minecraft:diamond_pickaxe"）
+     * @return true 表示本次破坏所使用的工具应立即损失全部剩余耐久。
+     */
+    boolean shatterToolOnBlockBreak(String toolId);
 }

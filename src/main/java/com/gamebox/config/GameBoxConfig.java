@@ -6,9 +6,10 @@ import com.gamebox.core.minigame.Minigame;
 import com.gamebox.core.minigame.MinigameId;
 import com.gamebox.core.minigame.MinigameManager;
 import com.gamebox.core.minigame.MinigameRegistry;
-import java.util.HashMap;
+import java.util.List;
 import java.util.LinkedHashMap;
 import java.util.Map;
+import net.minecraft.resources.Identifier;
 import net.neoforged.neoforge.common.ModConfigSpec;
 
 /**
@@ -21,6 +22,7 @@ public final class GameBoxConfig {
     private final Map<MinigameId, Map<String, ModConfigSpec.ConfigValue<?>>> values = new LinkedHashMap<>();
     private final Map<MinigameId, ConfigView> views = new LinkedHashMap<>();
 
+    @SuppressWarnings("unchecked")
     public GameBoxConfig(MinigameRegistry registry) {
         ModConfigSpec.Builder builder = new ModConfigSpec.Builder();
         for (Minigame game : registry.registered()) {
@@ -37,6 +39,9 @@ public final class GameBoxConfig {
                     case INT -> map.put(entry.key(),
                             builder.comment(entry.comment()).defineInRange(entry.key(), (Integer) entry.defaultValue(),
                                     (int) entry.min(), (int) entry.max(), Integer.class));
+                    case STRING_LIST -> map.put(entry.key(),
+                            builder.comment(entry.comment()).defineListAllowEmpty(entry.key(),
+                                    (List<String>) entry.defaultValue(), GameBoxConfig::isValidId));
                 }
             }
             builder.pop();
@@ -50,6 +55,16 @@ public final class GameBoxConfig {
         ConfigSchema.Builder schemaBuilder = ConfigSchema.builder();
         game.declareConfig(schemaBuilder);
         return schemaBuilder.build();
+    }
+
+    private static boolean isValidId(Object value) {
+        if (!(value instanceof String text)) {
+            return false;
+        }
+        if (text.equals("*") || text.endsWith(":*")) {
+            return true;
+        }
+        return Identifier.tryParse(text) != null;
     }
 
     public ModConfigSpec spec() {
@@ -85,6 +100,12 @@ public final class GameBoxConfig {
         @Override
         public int getInt(String key) {
             return (Integer) map.get(key).get();
+        }
+
+        @Override
+        @SuppressWarnings("unchecked")
+        public List<String> getStringList(String key) {
+            return (List<String>) map.get(key).get();
         }
     }
 }

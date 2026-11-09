@@ -9,7 +9,7 @@ import java.util.List;
  */
 public final class ConfigSchema {
 
-    public enum Type { BOOLEAN, DOUBLE, INT }
+    public enum Type { BOOLEAN, DOUBLE, INT, STRING_LIST }
 
     public record Entry(String key, Type type, Object defaultValue, double min, double max, String comment) {
     }
@@ -43,6 +43,12 @@ public final class ConfigSchema {
 
         public Builder intVal(String key, int defaultValue, int min, int max, String comment) {
             entries.add(new Entry(key, Type.INT, defaultValue, min, max, comment));
+            return this;
+        }
+
+        /** 字符串列表（如方块/物品/实体 ID 白名单），ID 形如 "minecraft:stone"，可省略命名空间。 */
+        public Builder listVal(String key, List<String> defaultValue, String comment) {
+            entries.add(new Entry(key, Type.STRING_LIST, List.copyOf(defaultValue), 0, 0, comment));
             return this;
         }
 
